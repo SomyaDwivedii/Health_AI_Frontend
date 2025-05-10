@@ -19,6 +19,11 @@ interface DepressionFormData {
   'Family History of Mental Illness': string;
 }
 
+// Define API response type
+interface PredictionResponse {
+  result_text: string;
+}
+
 // Define ranges and help text for each field
 const fieldConfig = {
   Age: {
@@ -250,7 +255,8 @@ const StudentDepressionPredictionForm: React.FC = () => {
         'Family History of Mental Illness': formData['Family History of Mental Illness']
       };
 
-      const response = await axios.post(`${API_URL}/predict_student_depression`, apiFormData);
+      // Add type for the response
+      const response = await axios.post<PredictionResponse>(`${API_URL}/predict_student_depression`, apiFormData);
       console.log('Response: ', response);
       setPrediction(response.data.result_text);
       // Show recommendations after a short delay for better UX

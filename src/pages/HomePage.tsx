@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import healthImage from '../assets/health-banner.jpeg';
 import diabetesImage from '../assets/diabetes.jpeg';
 import alzheimerImage from '../assets/alzheimer.jpg';
+import depressionImage from '../assets/depression.png'; // You'll need to add this image
 
 const HomePage: React.FC = () => {
   return (
@@ -19,6 +20,9 @@ const HomePage: React.FC = () => {
               </Link>
               <Link to="/alzheimer-prediction" className="bg-transparent hover:bg-blue-700 border-2 border-white text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
                 Alzheimer Assessment
+              </Link>
+              <Link to="/student-depression-prediction" className="bg-transparent hover:bg-blue-700 border-2 border-white text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
+                Student Depression Assessment
               </Link>
             </div>
           </div>
@@ -45,7 +49,7 @@ const HomePage: React.FC = () => {
           {/* Assessment Tools Section */}
           <section className="mb-16">
             <h2 className="text-3xl font-bold mb-8 text-center text-blue-800">Our Assessment Tools</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Diabetes Card */}
               <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:translate-y-px">
                 <div className="h-48 bg-blue-100 flex items-center justify-center">
@@ -96,6 +100,34 @@ const HomePage: React.FC = () => {
                   <Link 
                     to="/alzheimer-prediction" 
                     className="block w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-full text-center transition duration-300 ease-in-out transform hover:scale-105"
+                  >
+                    Start Assessment
+                  </Link>
+                </div>
+              </div>
+
+              {/* Student Depression Card */}
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:translate-y-px">
+                <div className="h-48 bg-teal-100 flex items-center justify-center">
+                  <img 
+                    src={depressionImage} 
+                    alt="Student Depression prediction" 
+                    className="max-w-full h-50 w-192 object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold mb-2 text-teal-800">Student Depression Assessment</h3>
+                  <p className="text-gray-600 mb-4">
+                    Evaluate depression risk factors among students based on academic, lifestyle, and environmental factors.
+                  </p>
+                  <ul className="text-gray-600 mb-6 pl-5 list-disc">
+                    <li>Analyzes academic pressure, sleep patterns, and stress levels</li>
+                    <li>Considers work-study balance and satisfaction</li>
+                    <li>Provides coping strategies</li>
+                  </ul>
+                  <Link 
+                    to="/student-depression-prediction" 
+                    className="block w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-full text-center transition duration-300 ease-in-out transform hover:scale-105"
                   >
                     Start Assessment
                   </Link>

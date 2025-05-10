@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-rou
 import HomePage from './pages/HomePage';
 import AlzheimerPredictionForm from './components/AlzheimerPredictionForm';
 import DiabetesPredictionForm from './components/DiabetesPredictionForm';
+import StudentDepressionPredictionForm from './components/StudentDepressionPredictionForm';
 
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -78,6 +79,18 @@ const App: React.FC = () => {
                 >
                   Alzheimer Assessment
                 </NavLink>
+                <NavLink 
+                  to="/student-depression-prediction" 
+                  className={({ isActive }) => 
+                    `font-medium transition-colors duration-300 ${
+                      isActive 
+                        ? 'text-blue-600' 
+                        : 'text-gray-700 hover:text-blue-600'
+                    }`
+                  }
+                >
+                  Student Depression
+                </NavLink>
               </nav>
               
               {/* Mobile Menu Button */}
@@ -102,6 +115,7 @@ const App: React.FC = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/diabetes-prediction" element={<DiabetesPredictionForm />} />
             <Route path="/alzheimer-prediction" element={<AlzheimerPredictionForm />} />
+            <Route path="/student-depression-prediction" element={<StudentDepressionPredictionForm />} />
           </Routes>
         </main>
         
@@ -136,6 +150,11 @@ const App: React.FC = () => {
                       Alzheimer Assessment
                     </Link>
                   </li>
+                  <li>
+                    <Link to="/student-depression-prediction" className="text-gray-300 hover:text-white transition-colors duration-300">
+                      Student Depression Assessment
+                    </Link>
+                  </li>
                 </ul>
               </div>
               
@@ -151,6 +170,11 @@ const App: React.FC = () => {
                   <li>
                     <a href="https://www.alz.org/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300">
                       Alzheimer's Association
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.nimh.nih.gov/health/topics/depression" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300">
+                      NIMH - Depression
                     </a>
                   </li>
                   <li>
